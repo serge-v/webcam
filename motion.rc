@@ -19,8 +19,8 @@ load_rc_config $name
 
 : ${motion_enable:=NO}
 
-command=%%PREFIX%%/bin/${name}
+command=/usr/local/bin/${name}
 pidfile="/var/run/${name}.pid"
-required_files=%%PREFIX%%/etc/${name}.conf
+required_files=/etc/${name}.conf
 
 run_rc_command "$1"
