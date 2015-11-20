@@ -23,4 +23,11 @@ command=/usr/local/bin/${name}
 pidfile="/var/run/${name}.pid"
 required_files=/etc/${name}.conf
 
+start_precmd="${name}_prestart"
+
+motion_prestart()
+{
+    /sbin/ldconfig /usr/local/lib /opt/vc/lib
+}
+
 run_rc_command "$1"
