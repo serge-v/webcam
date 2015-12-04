@@ -1,5 +1,19 @@
 #!/bin/sh
 
+usage() {
+    cat <<EOS
+    sh cross-build-frebsd [command]
+    commands:
+      bw     build world. Usualy runs first after 'svnlite up'
+      bk     build kernel.
+      ik     install kernel into ~/dist.
+    Then use:
+      ./copy-kernel.sh to copy kernel and uwrtn modules to RPI.
+EOS
+}
+
+[ "_$1" = "_" ] { usage(); exit; }
+
 set -e
 
 WDIR=/home/noro
