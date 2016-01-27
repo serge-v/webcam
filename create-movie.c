@@ -46,7 +46,7 @@ get_earliest_picture_timestamp(const char *dirname)
 	while (entry != NULL) {
 		if (strncmp(entry->d_name, "ann-20", 6) == 0 && strstr(entry->d_name, ".jpg") != NULL) {
 			ts = atoi(&entry->d_name[4]);
-			if (ts > 20160101 && ts <= now) {
+			if (ts > 20160101 && ts < now) {
 				break;
 			}
 			ts = 0;
