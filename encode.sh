@@ -2,15 +2,15 @@
 set -e
 set -x
 
+[ "_$1" == "_" ] && { echo specify timestamp ; exit ; }
+
 cd ~/cam
 
-day=`ls -1 ann-20*.jpg | sed 's/ann-//;s/-.*//' | uniq | head -1`
+day=`ls -1 ann-$1*.jpg | sed 's/ann-//;s/-.*//' | uniq | head -1`
 
 outfile=${day}.mp4
 echo encode day ${day} to ${outfile}?
 
-read aa
 ffmpeg -y -framerate 8 -pattern_type glob -i "ann-${day}*.jpg" -c:v libxvid ${outfile}
 
-read aa
 rm ann-${day}*.jpg
