@@ -66,7 +66,7 @@ run_ffmpeg(int ts)
 	char cmd[500];
 
 	snprintf(cmd, 500,
-		 "ffmpeg -v error "
+		 "/usr/local/bin/ffmpeg -v error "
 		 "-y -framerate 8 "
 		 "-pattern_type glob -i \"%s/ann-%d-*.jpg\" "
 		 "-c:v libxvid %s/%d.mp4",
